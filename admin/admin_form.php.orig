@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../style.css">
+<title>管理画面</title>
+</head>
+<body>
+管理フォーム
+<form method="post" action="admin_receive.php">
+
+<?php
+$user = oshko03_user1;
+$pass = Retype01;
+
+
+// DBからSQLを実行してユーザデータを抽出 
+$dbh = new PDO('mysql:host=mysql1.php.xdomain.ne.jp;dbname=oshko03_01;charset=utf8', $user, $pass);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = 'select * from userDeta';
+
+//sql実行してデータが存在したら全件fetch
+if ($stmt = $dbh->query($sql)) {
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    // テーブルのデータをoptionタグに成形 
+    echo "ユーザ名：　";
+    foreach($result as $user_data_val) {
+        $user_data .= "<option value='". $user_data_val['user_name'];
+        $user_data .= "'>". $user_data_val['user_name']. "</option>";
+        $email = $user_data_val['email'];
+        
+        $user_name2 = $user_data_val['user_name'];
+        
+
+    }
+}
+$dbh = null;
+
+
+?>
+<!--  全ユーザをセレクトボックスに書き出し -->
+<form method='POST' action='/test.php'>
+<select name='user'>
+    <?php   
+    echo $user_data; ?>
+</select>
+
+<?php
+//セレクトボックスで選択されたユーザ情報を取得
+
+//セレクトボックスで選択されたユーザの値をDBから受け取る。
+//$dbh = new PDO('mysql:host=mysql1.php.xdomain.ne.jp;dbname=oshko03_01;charset=utf8', $user, $pass);
+//$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//$sql = 'select * from userDeta WHERE user_name = ?';
+?>
+
+
+
+
+
+
+
+<br><br>
+ユーザ名：　<input type="text" name="user_name2" required><br>
+パスワード：<input type="text" name="password" required><br>
+Email：　　　<input type="text" name="email" required><br>
+管理者権限：　<input type="checkbox" name="admin"><br>
+
+
+
+
+
+
+
+<input type='submit' value='編集保存' />
+
+
+
+</form>
+</body>
+</html>

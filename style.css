@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+html {
+    font-family: sans-serif;
+    font-size: 12px;
+    
+}
+
+
+body {
+    margin 0 0 0 0 ;
+    background-color: #eeece9;
+    
+}
+
+
+.wrapper { 
+    margin:0 auto 0 0;
+    max-width:650px;
+    margin-right 20px;
+}
+
+
+.btn_cancel {
+	display: inline-block;
+	margin-right: 10px;
+	padding: 10px 20px;
+	color: #555;
+	font-size: 86%;
+	border-radius: 5px;
+	border: 1px solid #999;
+}
+.btn_cancel:hover {
+	color: #999;
+	border-color: #999;
+	text-decoration: none;
+}
+
+
+.button {
+    display       : inline-block;
+    border-radius : 5%;          /* 角丸       */
+    font-size     : 12pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 6px 6px;   /* 余白       */
+    background    : #d6d6fa;     /* 背景色     */
+    color         : #000000;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 2px 2px 2px #666666;  /* 影の設定 */
+    border        : 2px solid #c9c9fa;    /* 枠の指定 */
+  }
+  .button:hover {
+    box-shadow    : none;        /* カーソル時の影消去 */
+    color         : #a2a2ff;     /* 背景色     */
+    background    : #ffffff;     /* 文字色     */
+
+
+
+.info p {
+    display: inline-block;
+    line-height: 1.6em;
+    font-size: 86%;
+}
+
+
+@media screen and (max-width : 375px) {
+    { font-size: calc(18px + 0.25vw) * 4 }
+
+    img {
+        max-width: 100%;
+        font-size: 120%;
+    }
+
+
+    header, 
+    #wrapper{
+        width:100%;
+        /*font-size: 25px; */
+        font-size: calc(18px + 0.25vw) * 4
+    }
+}
